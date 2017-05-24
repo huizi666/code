@@ -1,0 +1,26 @@
+<html>
+<head></head>
+<script src="qrcode.min.js"></script>
+<body></body>
+<script>
+window.onload =function(){
+		var openDiv = document.createElement("div");
+        openDiv.id = "qrcode";
+        openDiv.style.width = 100+"px";
+        openDiv.style.height = 100+"px";
+		openDiv.style.border = 1+"px solid red";
+        openDiv.innerHTML = "这是动态创建的";
+        document.body.appendChild(openDiv);
+		
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            width : 96,//设置宽高
+            height : 96
+        });
+        qrcode.makeCode("http://www.baidu.com");
+        document.getElementById("send").onclick =function(){
+            qrcode.makeCode(document.getElementById("getval").value);
+        }
+    }
+        
+</script>
+</html>
